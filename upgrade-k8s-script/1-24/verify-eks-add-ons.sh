@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-KUBE_PROXY=v1.24.15-eksbuild.2
-COREDNS=v1.9.3-eksbuild.7
-CSI=v1.22.0-eksbuild.2
-CNI=v1.15.0-eksbuild.2
+KUBE_PROXY=v1.24.17-eksbuild.3
+COREDNS=v1.9.3-eksbuild.9
+CSI=v1.24.1-eksbuild.1
+CNI=v1.15.3-eksbuild.1
 
 read -p "enter cluster name: " CLUSTER_NAME
 read -p "enter aws profile: " PROFILE
