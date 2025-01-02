@@ -1,26 +1,79 @@
-grafana:
-  datasource:
-    uid: KLUVORSnk
-    type: prometheus
-  namespace:
-    - b2c-dev
+projects:
+  - setelpay
+  - ulp
+  - ufp
+  - ucommp
+  - b2c
+ns_ctx_map:
+  setel/dev-eks-eks-SSl9ZLzM:
     - dev
-    - dev-data
-    - setelpay-dev
-    - ucommp-dev
-    - ufp-dev
-    - ulp-dev
-    - pre-prod
-    - setelpay-pre-prod
-    - ucommp-pre-prod
-    - ufp-pre-prod
-    - ulp-pre-prod
-    - setelpay-staging
-    - ucommp-staging
-    - ufp-staging
-    - ulp-staging
     - staging
-  environment:
+  setelpay-dev/setelpay-dev-blue:
+    - setelpay-dev
+  setelpay-dev/setelpay-staging-blue:
+    - setelpay-staging
+  setelpay-dev/setelpay-pre-prod-blue:
+    - setelpay-pre-prod
+  ucommp-dev/ucommp-dev-blue:
+    - ucommp-dev
+  ucommp-dev/ucommp-staging-blue:
+    - ucommp-staging
+  ucommp-dev/ucommp-pre-prod-blue:
+    - ucommp-pre-prod
+  ufp-dev/ufp-dev-blue:
+    - ufp-dev
+  ufp-dev/ufp-staging-blue:
+    - ufp-staging
+  ufp-dev/ufp-pre-prod-blue:
+    - ufp-pre-prod
+  ulp-dev/ulp-dev-blue:
+    - ulp-dev
+  ulp-dev/ulp-staging-blue:
+    - ulp-staging
+  ulp-dev/ulp-pre-prod-blue:
+    - ulp-pre-prod
+  setel/dev-data-eks-GIWemjX4:
     - dev
+  setel/staging-data-eks:
+    - staging
+  setel/pre-prod-eks-eks-J7numciz:
     - pre-prod
-    - prod
+  shared-dev/b2c-dev-blue:
+    - b2c-dev
+ctx_env_map:
+  setel/dev-eks-eks-SSl9ZLzM: dev
+  setelpay-dev/setelpay-dev-blue: setelpay-dev
+  setelpay-dev/setelpay-staging-blue: setelpay-staging
+  setelpay-dev/setelpay-pre-prod-blue: setelpay-pre-prod
+  ucommp-dev/ucommp-dev-blue: ucommp-dev
+  ucommp-dev/ucommp-staging-blue: ucommp-staging
+  ucommp-dev/ucommp-pre-prod-blue: ucommp-pre-prod
+  ufp-dev/ufp-dev-blue: ufp-dev
+  ufp-dev/ufp-staging-blue: ufp-staging
+  ufp-dev/ufp-pre-prod-blue: ufp-pre-prod
+  ulp-dev/ulp-dev-blue: ulp-dev
+  ulp-dev/ulp-staging-blue: ulp-staging
+  ulp-dev/ulp-pre-prod-blue: ulp-pre-prod
+  setel/dev-data-eks-GIWemjX4: dev-data
+  setel/staging-data-eks: staging-data
+  setel/pre-prod-eks-eks-J7numciz: pre-prod
+  shared-dev/b2c-dev-blue: b2c-dev
+env_ns_pairs:
+  - dev:dev
+  - dev:staging
+  - b2c-dev:b2c-dev
+  - dev-data:dev
+  - setelpay-dev:setelpay-dev
+  - ucommp-dev:ucommp-dev
+  - ufp-dev:ufp-dev
+  - ulp-dev:ulp-dev
+  - pre-prod:pre-prod
+  - setelpay-pre-prod:setelpay-pre-prod
+  - ucommp-pre-prod:ucommp-pre-prod
+  - ufp-pre-prod:ufp-pre-prod
+  - ulp-pre-prod:ulp-pre-prod
+  - staging-data:staging
+  - setelpay-staging:setelpay-staging
+  - ucommp-staging:ucommp-staging
+  - ufp-staging:ufp-staging
+  - ulp-staging:ulp-staging
