@@ -25,7 +25,7 @@ QUERY_CFGS = {
     "queries": [
 
     ],
-    "from": "now-1d",
+    "from": "now-2d",
     "to": "now"
 }
 

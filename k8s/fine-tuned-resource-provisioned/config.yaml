@@ -1,3 +1,8 @@
+scaling_factor:
+  threshold_in_percent: 85
+  target_replicas: 1.2
+  min_request_cpu: 150
+  limit_factor: 1.5
 projects:
   - setelpay
   - ulp

@@ -38,6 +38,7 @@ def update_patch(
         _dir = f"{service_name}/{ns}/aws/apse1/"
     else:
         _dir = f'{service_name}/{project}/{ns}/aws/apse1/'
+    patched = False
     for yaml_file in glob.glob(os.path.join(_dir, '*.yaml'), recursive=True):
         if re.search('/secret.*.ya?ml', yaml_file):
             continue

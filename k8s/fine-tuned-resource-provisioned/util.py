@@ -1,6 +1,7 @@
 from math import ceil
 import subprocess
 from ruamel.yaml import YAML
+import os
 
 
 def byte_to_mb(b: int) -> int:
@@ -16,7 +17,9 @@ def run(commands):
 
 
 def load_yaml_config() -> dict:
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    config_file_path = os.path.join(base_dir, 'config.yaml')
     yaml = YAML()
-    with open('config.yaml', 'r') as f:
+    with open(config_file_path, 'r') as f:
         return yaml.load(f)
 

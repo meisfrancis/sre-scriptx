@@ -26,18 +26,20 @@ def get_hpa_metrics(service_name: str) -> dict | None:
                     if not _results.get(_key):
                         _results[_key] = {}
                     _results[_key]['current_replicas'] = _item.status.current_replicas
-                    _cpu_val = _cpu_metric.current.average_value
-                    _mem_val = _mem_metric.current.average_value
-                    if 'm' in _cpu_val:
-                        _results[_key]['current_cpu_value'] = int(_cpu_val.split('m')[0])
+                    _cpu_val_w_quantity = _cpu_metric.current.average_value
+                    _mem_val_w_quantity = _mem_metric.current.average_value
+                    if 'm' in _cpu_val_w_quantity:
+                        _cpu_val = int(_cpu_val_w_quantity.split('m')[0])
                     else:
-                        _results[_key]['current_cpu_value'] = int(_cpu_val)
-                    if 'm' in _mem_val:
-                        _results[_key]['current_mem_value'] = int(_mem_val.split('m')[0]) / 1000
-                    elif 'k' in _mem_val:
-                        _results[_key]['current_mem_value'] = int(_mem_val.split('k')[0]) * 1000
+                        _cpu_val = int(_cpu_val_w_quantity) * 1000
+                    if 'm' in _mem_val_w_quantity:
+                        _mem_val = int(_mem_val_w_quantity.split('m')[0]) / 1000
+                    elif 'k' in _mem_val_w_quantity:
+                        _mem_val = int(_mem_val_w_quantity.split('k')[0]) * 1000
                     else:
-                        _results[_key]['current_mem_value'] = byte_to_mb(int(_mem_val))
+                        _mem_val = int(_mem_val_w_quantity)
+                    _results[_key]['current_cpu_value'] = _cpu_val
+                    _results[_key]['current_mem_value'] = byte_to_mb(_mem_val)
             except Exception as e:
                 print(f"Exception when calling AutoscalingV1Api->list_namespaced_horizontal_pod_autoscaler: {e}")
                 return None
