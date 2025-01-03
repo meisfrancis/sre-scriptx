@@ -1,0 +1,5 @@
+kubernetes==31.0.0
+pydash==8.0.4
+python-dotenv==1.0.1
+Requests==2.32.3
+ruamel.base==1.0.0
